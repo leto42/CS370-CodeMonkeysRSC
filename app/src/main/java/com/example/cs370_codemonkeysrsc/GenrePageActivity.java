@@ -6,19 +6,32 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 public class GenrePageActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+
+    private RadioGroup choices_group;
+    private RadioButton yes_button, no_button, selected_button;
+    private Button submit_button;
+    private static Boolean allowExplicit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_genre_page);
 
+        yes_button = findViewById(R.id.yes_radio_button);
+        no_button = findViewById(R.id.no_radio_button);
+        choices_group = findViewById(R.id.choices_radio_group);
+        submit_button = findViewById(R.id.submit_button);
+
         Spinner spinner = findViewById(R.id.genre_spinner);
+
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.genre_array, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
@@ -34,16 +47,22 @@ public class GenrePageActivity extends AppCompatActivity implements AdapterView.
     }
 
     public void onRadioButtonClicked(View view) {
+        int selected_num = choices_group.getCheckedRadioButtonId();
+        selected_button = findViewById(selected_num);
+
+        // See which choice was selected.
         boolean checked = ((RadioButton) view).isChecked();
 
         switch(view.getId()) {
             case R.id.yes_radio_button:
                 if (checked)
-                    // Do something.
+                    // Allow explicit lyrics.
+                    allowExplicit = true;
                     break;
             case R.id.no_radio_button:
                 if (checked)
-                    // Do nothing.
+                    // No explicit lyrics.
+                    allowExplicit = false;
                     break;
         }
     }
