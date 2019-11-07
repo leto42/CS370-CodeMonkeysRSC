@@ -2,6 +2,7 @@ package com.example.cs370_codemonkeysrsc;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -35,6 +36,15 @@ public class GenrePageActivity extends AppCompatActivity implements AdapterView.
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
+
+        // Set up button to go to Youtube page. [SUBMIT button]
+        submit_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(GenrePageActivity.this, YoutubePageActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
