@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">CS370 - CodeMonkeys RSC</string>
+
+    <string-array name="genre_array">
+        <item>test1</item>
+        <item>test2</item>
+        <item>test3</item>
+    </string-array>
 </resources>
