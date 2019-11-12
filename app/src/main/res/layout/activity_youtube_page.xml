@@ -23,6 +23,23 @@
         app:layout_constraintVertical_bias="0.811" />
 
     <Button
+        android:id="@+id/home_button"
+        android:background="@drawable/new_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Home"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFB"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.811"
+        />
+
+    <Button
         android:id="@+id/like_button"
         android:background="@drawable/like_button"
         android:layout_height="wrap_content"
@@ -32,11 +49,12 @@
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.708"
+        app:layout_constraintHorizontal_bias="0.808"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.811"
         android:textAllCaps="false"/>
+        <!--constraintHorizontal_bias = 0.708-->
 
     <TextView
         android:id="@+id/textView"

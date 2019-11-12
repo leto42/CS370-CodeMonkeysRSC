@@ -18,6 +18,7 @@ public class GenrePageActivity extends AppCompatActivity implements AdapterView.
     private RadioGroup choices_group;
     private RadioButton yes_button, no_button, selected_button;
     private Button submit_button;
+    private Button home_button;
     private static Boolean allowExplicit;
 
     @Override
@@ -29,6 +30,7 @@ public class GenrePageActivity extends AppCompatActivity implements AdapterView.
         no_button = findViewById(R.id.no_radio_button);
         choices_group = findViewById(R.id.choices_radio_group);
         submit_button = findViewById(R.id.submit_button);
+        home_button = findViewById(R.id.home_button);
 
         Spinner spinner = findViewById(R.id.genre_spinner);
 
@@ -45,6 +47,15 @@ public class GenrePageActivity extends AppCompatActivity implements AdapterView.
                 startActivity(intent);
             }
         });
+        // Button to return to MainActivity page.
+        home_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(GenrePageActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     @Override
