@@ -2,8 +2,32 @@
     <string name="app_name">CS370 - CodeMonkeys RSC</string>
 
     <string-array name="genre_array">
-        <item>test1</item>
-        <item>test2</item>
-        <item>test3</item>
+        <item>African Music</item>
+        <item>Alternative</item>
+        <item>Asian Music</item>
+        <item>Blues</item>
+        <item>Brazilian Music</item>
+        <item>Christian</item>
+        <item>Classical</item>
+        <item>Country</item>
+        <item>Cumbia</item>
+        <item>Dance</item>
+        <item>Electro</item>
+        <item>Films/Games</item>
+        <item>Folk</item>
+        <item>Indian Music</item>
+        <item>Jazz</item>
+        <item>Kids</item>
+        <item>Latin Music</item>
+        <item>Metal</item>
+        <item>Pop</item>
+        <item>Rap/Hip-hop</item>
+        <item>Reggae</item>
+        <item>Reggaeton</item>
+        <item>Rock</item>
+        <item>R and B</item>
+        <item>Salsa</item>
+        <item>Soul and Funk</item>
+        <item>Traditional Mexicano</item>
     </string-array>
 </resources>
