@@ -2,6 +2,7 @@ package com.example.cs370_codemonkeysrsc;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -20,6 +21,7 @@ public class GenrePageActivity extends AppCompatActivity implements AdapterView.
     private Button submit_button;
     private Button home_button;
     private static Boolean allowExplicit;
+    private static String genre_choice;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +63,17 @@ public class GenrePageActivity extends AppCompatActivity implements AdapterView.
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int pos, long id) {
         adapterView.getItemAtPosition(pos);
+        // Store genre choice to a string.
+        genre_choice = adapterView.getItemAtPosition(pos).toString();
+
+        /*
+        //[FOR TESTING] Print out the string that is being stored.
+        Context context = getApplicationContext();
+        CharSequence text = genre_choice;
+        int duration = Toast.LENGTH_SHORT;
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
+        */
     }
 
     @Override
