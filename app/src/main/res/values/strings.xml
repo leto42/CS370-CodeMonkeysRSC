@@ -11,13 +11,13 @@
         <item>Classical</item>
         <item>Country</item>
         <item>Cumbia</item>
-        <item>Dance &amp; EDM</item>
+        <item>Dance</item>
         <item>Electro</item>
         <item>Films/Games</item>
         <item>Folk</item>
         <item>Indian Music</item>
         <item>Jazz</item>
-        <item>K-pop</item>
+        <item>Kids</item>
         <item>Latin Music</item>
         <item>Metal</item>
         <item>Pop</item>
@@ -25,9 +25,9 @@
         <item>Reggae</item>
         <item>Reggaeton</item>
         <item>Rock</item>
-        <item>R &amp; B</item>
+        <item>R and B</item>
         <item>Salsa</item>
-        <item>Soul &amp; Funk</item>
+        <item>Soul and Funk</item>
         <item>Traditional Mexicano</item>
     </string-array>
 </resources>
