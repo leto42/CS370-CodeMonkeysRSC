@@ -2,6 +2,7 @@ package com.example.cs370_codemonkeysrsc;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -67,6 +68,13 @@ public class GenrePageActivity extends AppCompatActivity implements AdapterView.
     public void onItemSelected(AdapterView<?> adapterView, View view, int pos, long id) {
         adapterView.getItemAtPosition(pos);
         chosenGenreID = GenreIDs[pos];
+
+        // Temporary display message to see the genre id being selected.
+        Context context = getApplicationContext();
+        CharSequence text = String.format("Genre ID: %d", GenreIDs[pos]);
+        int duration = Toast.LENGTH_SHORT;
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
     }
 
     @Override
