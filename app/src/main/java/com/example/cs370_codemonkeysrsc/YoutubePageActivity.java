@@ -21,6 +21,7 @@ public class YoutubePageActivity extends AppCompatActivity {
         home_button = findViewById(R.id.home_button);
         new_button = findViewById(R.id.new_button);
         like_button = findViewById(R.id.like_button);
+        String GenreID = getIntent().getStringExtra("GENRE_ID");
 
         home_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,6 +52,7 @@ public class YoutubePageActivity extends AppCompatActivity {
                 toast.show();
             }
         });
+
 
 
     }
