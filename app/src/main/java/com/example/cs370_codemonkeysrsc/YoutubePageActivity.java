@@ -36,6 +36,7 @@ public class YoutubePageActivity extends YouTubeBaseActivity {
         youtube_listener = new YouTubePlayer.OnInitializedListener() {
             @Override
             public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
+                // example of playing video
                 youTubePlayer.loadVideo("OTHxzgoJM5E");
             }
 
