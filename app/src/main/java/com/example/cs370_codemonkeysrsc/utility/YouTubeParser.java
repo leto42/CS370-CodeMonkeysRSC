@@ -18,7 +18,7 @@ public class YouTubeParser {
     /**
      * Returns a list of recipes that match a search term
      * @param json String json representing the server's response
-     * @return list of recipes (as YouTubeModels)
+     * @return list of items (as YouTubeModels)
      */
     public static List<YouTubeModel> getMatches(String json) {
 
@@ -28,8 +28,8 @@ public class YouTubeParser {
             // a single JSONObject representing the whole response
             JSONObject response = new JSONObject(json);
             JSONArray matchArray = new JSONArray();
-
             matchArray = response.getJSONArray("items");
+
             // Only need first object.
             JSONObject video = matchArray.getJSONObject(0);
 

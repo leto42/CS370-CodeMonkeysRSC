@@ -13,19 +13,24 @@ public class YouTubeModel {
     private String videoID;
 }
 
-// sample of partial JSON object
+// sample of JSON object
 
 /*
 "items" : {
   {
   "kind": "youtube#searchResult",
   "etag": etag,
+
+  Using this section for videoId
+
   "id": {
     "kind": string,
     "videoId": string,
     "channelId": string,
     "playlistId": string
   },
+
+
   "snippet": {
     "publishedAt": datetime,
     "channelId": string,

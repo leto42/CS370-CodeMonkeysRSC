@@ -1,7 +1,5 @@
 package com.example.cs370_codemonkeysrsc;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,10 +7,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.cs370_codemonkeysrsc.model.YouTubeModel;
+import com.example.cs370_codemonkeysrsc.network.VideoSearchAsyncTask;
+import com.example.cs370_codemonkeysrsc.network.YouTubeAPI;
 import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerView;
+
+import java.util.List;
 
 public class YoutubePageActivity extends YouTubeBaseActivity {
     private Button new_button; // designed to return to input page *
@@ -21,6 +24,12 @@ public class YoutubePageActivity extends YouTubeBaseActivity {
     private Button youtube_play_button;
     private YouTubePlayerView youtubeplayerview;
     private YouTubePlayer.OnInitializedListener youtube_listener;
+    private static String video_ID;
+
+    // Will get searchterm from the genre page after the Deezer API search is done.
+
+    //temp search term
+    private String searchTerm = "how to pronounce woodchuck";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +46,8 @@ public class YoutubePageActivity extends YouTubeBaseActivity {
             @Override
             public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
                 // example of playing video
-                youTubePlayer.loadVideo("OTHxzgoJM5E");
+                //youTubePlayer.loadVideo("OTHxzgoJM5E");
+                youTubePlayer.loadVideo(video_ID);
             }
 
             @Override
@@ -50,6 +60,28 @@ public class YoutubePageActivity extends YouTubeBaseActivity {
         youtube_play_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //create a new task
+                VideoSearchAsyncTask video_task = new VideoSearchAsyncTask();
+
+
+                // add a VideoListener to the task
+                video_task.setListener(new VideoSearchAsyncTask.VideoListener() {
+                    @Override
+                    public void onVideoSearchCallback(List<YouTubeModel> YouTubeModels) {
+                        // show the first response on the screen
+                        // this is the "id" part of JSON
+                        YouTubeModel first = YouTubeModels.get(0);
+
+                        // set video_ID
+                        video_ID = first.getVideoID();
+                        // Create view for this to display under/over youtube video.
+                        //VideoName.setText(first.getVideoName());
+
+                    }
+                });
+
+                //Start the task
+                video_task.execute(searchTerm);
                 youtubeplayerview.initialize(YouTubeAPI.getYouTube_API_KEY(), youtube_listener);
 
             }
