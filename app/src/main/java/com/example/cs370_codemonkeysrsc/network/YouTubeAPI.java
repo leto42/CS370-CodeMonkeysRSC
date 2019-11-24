@@ -38,11 +38,6 @@ public class YouTubeAPI {
         // piece together a valid url, starting with the base
         HttpUrl.Builder urlBuilder = HttpUrl.parse(baseApiUrl).newBuilder();
 
-        // and adding on a few more parts
-     //   urlBuilder.addQueryParameter("_app_key", YouTube_API_KEY);
-   //     urlBuilder.addQueryParameter("_app_id", appId);
-  //      urlBuilder.addQueryParameter("q", input);
-
         // Example URL
         // https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=how%20to%20prounce%20woodchuck&type=video&key=[API KEY HERE]
 

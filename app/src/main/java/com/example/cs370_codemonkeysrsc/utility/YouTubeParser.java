@@ -27,17 +27,11 @@ public class YouTubeParser {
         try {
             // a single JSONObject representing the whole response
             JSONObject response = new JSONObject(json);
-            JSONArray matchArray = new JSONArray();
-            matchArray = response.getJSONArray("items");
+            JSONArray matchArray = response.getJSONObject("items").getJSONArray("id");
 
-            // Only need first object.
             JSONObject video = matchArray.getJSONObject(0);
 
-            // get into nested JSON list
-            JSONObject ID_list = video.getJSONObject("id");
-
-            // get the video id needed to play the video.
-            String VideoID = ID_list.getString("videoId");
+            String VideoID = video.getString("videoId");
 
             YouTubeModel youtubeModel = new YouTubeModel();
             youtubeModel.setVideoID(VideoID);

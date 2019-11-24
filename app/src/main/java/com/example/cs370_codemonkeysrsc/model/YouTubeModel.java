@@ -20,9 +20,6 @@ public class YouTubeModel {
   {
   "kind": "youtube#searchResult",
   "etag": etag,
-
-  Using this section for videoId
-
   "id": {
     "kind": string,
     "videoId": string,
