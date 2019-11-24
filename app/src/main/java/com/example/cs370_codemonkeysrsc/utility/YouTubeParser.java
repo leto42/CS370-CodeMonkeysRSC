@@ -27,7 +27,7 @@ public class YouTubeParser {
         try {
             // a single JSONObject representing the whole response
             JSONObject response = new JSONObject(json);
-            JSONArray matchArray = response.getJSONObject("items").getJSONArray("id");
+            JSONArray matchArray = response.getJSONObject("search").getJSONObject("items").getJSONArray("id");
 
             JSONObject video = matchArray.getJSONObject(0);
 
