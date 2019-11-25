@@ -25,13 +25,34 @@ public class YouTubeParser {
         List<YouTubeModel> modelList = new ArrayList<>();
 
         try {
+            /* Want videoId
+        "video"
+            "items" : [
+              {
+              "kind": "youtube#searchResult",
+              "etag": etag,
+              "id": {
+                "kind": string,
+                "videoId": string,
+                "channelId": string,
+                "playlistId": string
+              }
+                ...
+                ]
+             */
             // a single JSONObject representing the whole response
             JSONObject response = new JSONObject(json);
-            JSONArray matchArray = response.getJSONObject("search").getJSONObject("items").getJSONArray("id");
-
-            JSONObject video = matchArray.getJSONObject(0);
-
-            String VideoID = video.getString("videoId");
+            // get entire JSON response
+            JSONArray videoArray = response.getJSONArray("videos");
+            JSONObject firstObject = videoArray.getJSONObject(0);
+            // get item array and object
+            JSONArray itemArray = firstObject.getJSONArray("items");
+            JSONObject itemObject = itemArray.getJSONObject(0);
+            // get id array and object
+            JSONArray idArray = itemObject.getJSONArray("id");
+            JSONObject idObject = idArray.getJSONObject(0);
+            // extract videoId
+            String VideoID = idObject.getString("videoId");
 
             YouTubeModel youtubeModel = new YouTubeModel();
             youtubeModel.setVideoID(VideoID);

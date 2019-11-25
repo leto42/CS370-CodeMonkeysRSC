@@ -70,10 +70,10 @@ public class YoutubePageActivity extends YouTubeBaseActivity {
                     public void onVideoSearchCallback(List<YouTubeModel> YouTubeModels) {
                         // show the first response on the screen
                         // this is the "id" part of JSON
-                        YouTubeModel first = YouTubeModels.get(0);
+                      //  YouTubeModel first = YouTubeModels.get(0);
 
                         // set video_ID
-                        video_ID = first.getVideoID();
+                        //video_ID = first.getVideoID();
                         // Create view for this to display under/over youtube video.
                         //VideoName.setText(first.getVideoName());
 
@@ -82,7 +82,7 @@ public class YoutubePageActivity extends YouTubeBaseActivity {
 
                 //Start the task
                 video_task.execute(searchTerm);
-                youtubeplayerview.initialize(YouTubeAPI.getYouTube_API_KEY(), youtube_listener);
+                //youtubeplayerview.initialize(YouTubeAPI.getYouTube_API_KEY(), youtube_listener);
 
             }
         });
