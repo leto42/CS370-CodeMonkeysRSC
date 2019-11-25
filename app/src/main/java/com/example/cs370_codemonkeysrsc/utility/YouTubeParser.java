@@ -42,16 +42,10 @@ public class YouTubeParser {
              */
             // a single JSONObject representing the whole response
             JSONObject response = new JSONObject(json);
-            // get entire JSON response
-            JSONArray videoArray = response.getJSONArray("videos");
-            JSONObject firstObject = videoArray.getJSONObject(0);
+
             // get item array and object
-            JSONArray itemArray = firstObject.getJSONArray("items");
-            JSONObject itemObject = itemArray.getJSONObject(0);
-            // get id array and object
-            JSONArray idArray = itemObject.getJSONArray("id");
-            JSONObject idObject = idArray.getJSONObject(0);
-            // extract videoId
+            JSONObject itemObject = response.getJSONArray("items").getJSONObject(0);
+            JSONObject idObject = itemObject.getJSONObject("id");
             String VideoID = idObject.getString("videoId");
 
             YouTubeModel youtubeModel = new YouTubeModel();
