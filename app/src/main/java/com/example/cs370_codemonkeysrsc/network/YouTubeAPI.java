@@ -10,7 +10,7 @@ import okhttp3.Response;
 public class YouTubeAPI {
 
     // base search URL
-    private static final String baseApiUrl = "https://googleapis.com/youtube/v3/search";
+    private static final String baseApiUrl = "https://www.googleapis.com/youtube/v3/search";
     // API Key
     private static final String YouTube_API_KEY = "AIzaSyA3iS0EIDG1zLdVaJ9fpc-oGtKyksksTNQ";
     // Part is always going to be "snippet"
