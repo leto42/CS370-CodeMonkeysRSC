@@ -52,6 +52,7 @@ public class GenrePageActivity extends AppCompatActivity implements AdapterView.
                 Intent intent = new Intent(GenrePageActivity.this, YoutubePageActivity.class);
                 intent.putExtra("GENRE_ID", chosenGenreID);
                 startActivity(intent);
+                finish();
             }
         });
         // Button to return to MainActivity page.
@@ -60,6 +61,7 @@ public class GenrePageActivity extends AppCompatActivity implements AdapterView.
             public void onClick(View view) {
                 Intent intent = new Intent(GenrePageActivity.this, MainActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
 

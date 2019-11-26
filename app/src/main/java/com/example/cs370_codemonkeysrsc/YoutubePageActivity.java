@@ -1,22 +1,38 @@
 package com.example.cs370_codemonkeysrsc;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
-public class YoutubePageActivity extends AppCompatActivity {
+import com.example.cs370_codemonkeysrsc.model.YouTubeModel;
+import com.example.cs370_codemonkeysrsc.network.VideoSearchAsyncTask;
+import com.example.cs370_codemonkeysrsc.network.YouTubeAPI;
+import com.google.android.youtube.player.YouTubeBaseActivity;
+import com.google.android.youtube.player.YouTubeInitializationResult;
+import com.google.android.youtube.player.YouTubePlayer;
+import com.google.android.youtube.player.YouTubePlayerView;
+
+import java.util.List;
+
+public class YoutubePageActivity extends YouTubeBaseActivity {
     private Button new_button; // designed to return to input page *
     private Button home_button; // designed to return to main page
     private Button like_button; // designed to save song to favorites
+    private Button youtube_play_button;
+    private TextView videoidView;
+    private YouTubePlayerView youtubeplayerview;
+    private YouTubePlayer.OnInitializedListener youtube_listener;
+    private String video_ID;
     private String returnedSongTitle;
     private int GenreID; //ORIGINAL
     //static int GenreID;
+    private String searchTerm;
+
 
     public int getGenreID() {return GenreID;} // not currently working
 
@@ -27,6 +43,9 @@ public class YoutubePageActivity extends AppCompatActivity {
         home_button = findViewById(R.id.home_button);
         new_button = findViewById(R.id.new_button);
         like_button = findViewById(R.id.like_button);
+        videoidView = findViewById(R.id.videoid_text);
+        youtube_play_button = findViewById(R.id.YouTube_play_button);
+        youtubeplayerview = findViewById(R.id.YouTubePlayer_view);
 
         // String GenreID = getIntent().getStringExtra("GENRE_ID"); ORIGINAL
         GenreID = getIntent().getIntExtra("GENRE_ID", 0);
@@ -52,8 +71,7 @@ public class YoutubePageActivity extends AppCompatActivity {
                 int duration = Toast.LENGTH_SHORT;
                 Toast toast = Toast.makeText(context, text, duration);
                 toast.show();
-                String youtubeInput = returnedSongTitle + " song lyrics";
-                // Youtube API call here with songTitle
+                searchTerm = returnedSongTitle + " song lyrics";
 
 
             }
@@ -61,17 +79,39 @@ public class YoutubePageActivity extends AppCompatActivity {
 
         deezerSearch.execute(GenreID);
         Log.d("YoutubePageActivity", "returnedSongTitle: " + returnedSongTitle);
-        /*
-        // Temporary display message to see the genre id being selected.
-        Context context = getApplicationContext();
-        CharSequence text = returnedSongTitle;
-        int duration = Toast.LENGTH_SHORT;
-        Toast toast = Toast.makeText(context, text, duration);
-        toast.show();
 
-         */
+        // set up youtube play button
+        youtube_play_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            //create a new task
+            VideoSearchAsyncTask video_task = new VideoSearchAsyncTask();
 
 
+            // add a VideoListener to the task
+            video_task.setListener(new VideoSearchAsyncTask.VideoListener() {
+                @Override
+                public void onVideoSearchCallback(List<YouTubeModel> YouTubeModels) {
+                    // show the first response on the screen
+                    YouTubeModel first = YouTubeModels.get(0);
+
+                    // set video_ID
+                    video_ID = first.getVideoID();
+                    videoidView.setText(first.getVideoID());
+
+                    Log.d("SetView:", videoidView.getText().toString());
+                    youtubeplayerview.initialize(YouTubeAPI.getYouTube_API_KEY(), youtube_listener);
+                    // Create view for this to display under/over youtube video.
+                    //VideoName.setText(first.getVideoName());
+                }
+            });
+                //Start the task
+                video_task.execute(searchTerm);
+                //youtubeplayerview.initialize(YouTubeAPI.getYouTube_API_KEY(), youtube_listener);
+
+
+            }
+        });
 
         home_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,6 +119,7 @@ public class YoutubePageActivity extends AppCompatActivity {
                 // returns user to MainActivity page.
                 Intent intent = new Intent(YoutubePageActivity.this, MainActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -88,6 +129,7 @@ public class YoutubePageActivity extends AppCompatActivity {
                 // returns user to GenrePageActivity.
                 Intent intent = new Intent(YoutubePageActivity.this, GenrePageActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -103,7 +145,18 @@ public class YoutubePageActivity extends AppCompatActivity {
             }
         });
 
+        // set up youtube listener
+        youtube_listener = new YouTubePlayer.OnInitializedListener() {
+            @Override
+            public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
+                Log.d("YouTubeInitialization:", videoidView.getText().toString());
+                youTubePlayer.loadVideo(video_ID);
+            }
 
+            @Override
+            public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult youTubeInitializationResult) {
 
+            }
+        };
     }
 }
