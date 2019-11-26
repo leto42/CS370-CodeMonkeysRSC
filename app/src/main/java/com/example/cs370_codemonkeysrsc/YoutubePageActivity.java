@@ -119,6 +119,7 @@ public class YoutubePageActivity extends YouTubeBaseActivity {
                 // returns user to MainActivity page.
                 Intent intent = new Intent(YoutubePageActivity.this, MainActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -128,6 +129,7 @@ public class YoutubePageActivity extends YouTubeBaseActivity {
                 // returns user to GenrePageActivity.
                 Intent intent = new Intent(YoutubePageActivity.this, GenrePageActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
 

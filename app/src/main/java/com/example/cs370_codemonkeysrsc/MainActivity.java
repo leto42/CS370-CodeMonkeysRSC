@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, GenrePageActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
         saveButton = findViewById(R.id.save_button);
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, LikeFavoritePage.class);
                 startActivity(intent);
+                finish();
             }
         });
     }
