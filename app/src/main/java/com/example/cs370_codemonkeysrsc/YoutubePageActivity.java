@@ -150,7 +150,20 @@ public class YoutubePageActivity extends YouTubeBaseActivity {
             @Override
             public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
                 Log.d("YouTubeInitialization:", videoidView.getText().toString());
+                youTubePlayer.setFullscreen(false);
                 youTubePlayer.loadVideo(video_ID);
+                youTubePlayer.setOnFullscreenListener(new YouTubePlayer.OnFullscreenListener()
+                {
+                    @Override
+                    public void onFullscreen(boolean fullscreen)
+                    {
+                        if(fullscreen)
+                            youTubePlayer.play();
+                        else
+                            youTubePlayer.play();
+                    }
+                });
+
             }
 
             @Override
