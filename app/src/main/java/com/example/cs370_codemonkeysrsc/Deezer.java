@@ -55,8 +55,8 @@ public class Deezer extends AsyncTask<Integer, Void, String> {
         String fullGenreApiUrl = baseGenreApiUrl + selectedGenre + "/artists/"; // = https://api.deezer.com/genre/132/artists/
 
         HttpUrl.Builder urlBuilder = HttpUrl.parse(fullGenreApiUrl).newBuilder();
-        urlBuilder.addQueryParameter("_app_key", apiKey);
-        urlBuilder.addQueryParameter("_app_id", appId);
+        //urlBuilder.addQueryParameter("_app_key", apiKey); // don't need app key -> database is public
+        //urlBuilder.addQueryParameter("_app_id", appId); // don't need app ID
         //urlBuilder.addQueryParameter("q", selectedGenre); // q? -> from Lab 4
         String url = urlBuilder.build().toString(); // response URL
 
@@ -64,12 +64,12 @@ public class Deezer extends AsyncTask<Integer, Void, String> {
         Request request = new Request.Builder().url(url).build();
 
         OkHttpClient client = new OkHttpClient();
+        Response myResponse;
         try {
             // ask the server for a response
-            Response response = client.newCall(request).execute();
             // `response` also contains metadata: success/fail, travel time, etc.
             // only need the body of the result (as a string)
-            responseJSON = response.body().string(); // ** call responseJSON
+            responseJSON = client.newCall(request).execute().body().string(); // ** call responseJSON
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -81,7 +81,7 @@ public class Deezer extends AsyncTask<Integer, Void, String> {
             try {
                 // convert the raw string into a Java JSONObject
                 JSONObject response = new JSONObject(responseJSON);
-                JSONArray artists = response.getJSONArray("artists");
+                JSONArray artists = response.getJSONArray("data");
 
                 for (int i = 0; i < artists.length(); i++){ // for all returned artist objects
                     JSONObject arrayElement = artists.getJSONObject(i); // grab artist object at index i
@@ -126,8 +126,8 @@ public class Deezer extends AsyncTask<Integer, Void, String> {
         String fullArtistApiUrl = baseArtistApiUrl + selectedArtist + "/top?limit=10"; // = https://api.deezer.com/artist/384236/top?limit=10
 
         HttpUrl.Builder urlBuilder = HttpUrl.parse(fullArtistApiUrl).newBuilder();
-        urlBuilder.addQueryParameter("_app_key", apiKey);
-        urlBuilder.addQueryParameter("_app_id", appId);
+        //urlBuilder.addQueryParameter("_app_key", apiKey); // don't need app key -> data is public
+        //urlBuilder.addQueryParameter("_app_id", appId); // don't need app ID
         //urlBuilder.addQueryParameter("q", selectedArtist); // q? -> from Lab 4
         String url = urlBuilder.build().toString(); // response URL
 
@@ -151,7 +151,7 @@ public class Deezer extends AsyncTask<Integer, Void, String> {
             try {
                 // convert the raw string into a Java JSONObject
                 JSONObject response = new JSONObject(responseJSON);
-                JSONArray songs = response.getJSONArray("songs");
+                JSONArray songs = response.getJSONArray("data");
 
                 for (int i = 0; i < songs.length(); i++) { // for all returned song objects in array
                     JSONObject arrayElement = songs.getJSONObject(i); // grab song object at index i

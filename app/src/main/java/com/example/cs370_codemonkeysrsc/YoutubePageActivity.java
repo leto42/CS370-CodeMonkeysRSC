@@ -46,15 +46,30 @@ public class YoutubePageActivity extends AppCompatActivity {
             public void onDeezerCallback(String songTitle) {
                 returnedSongTitle = songTitle;
                 Log.d("YoutubePageActivity", "returnedSongTitle: " + returnedSongTitle);
+                // Temporary display message to see the genre id being selected.
+                Context context = getApplicationContext();
+                CharSequence text = returnedSongTitle;
+                int duration = Toast.LENGTH_SHORT;
+                Toast toast = Toast.makeText(context, text, duration);
+                toast.show();
+                String youtubeInput = returnedSongTitle + " song lyrics";
+                // Youtube API call here with songTitle
+
+
             }
         });
+
+        deezerSearch.execute(GenreID);
         Log.d("YoutubePageActivity", "returnedSongTitle: " + returnedSongTitle);
+        /*
         // Temporary display message to see the genre id being selected.
         Context context = getApplicationContext();
         CharSequence text = returnedSongTitle;
         int duration = Toast.LENGTH_SHORT;
         Toast toast = Toast.makeText(context, text, duration);
         toast.show();
+
+         */
 
 
 
