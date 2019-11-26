@@ -50,6 +50,7 @@ public class GenrePageActivity extends AppCompatActivity implements AdapterView.
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(GenrePageActivity.this, YoutubePageActivity.class);
+                intent.putExtra("GENRE_ID", chosenGenreID);
                 startActivity(intent);
             }
         });
@@ -75,6 +76,8 @@ public class GenrePageActivity extends AppCompatActivity implements AdapterView.
         int duration = Toast.LENGTH_SHORT;
         Toast toast = Toast.makeText(context, text, duration);
         toast.show();
+        // end of genre toast
+
     }
 
     @Override
