@@ -23,13 +23,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        saveButton = findViewById(R.id.save_button);
-        saveButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, LikeFavoritePage.class);
-                startActivity(intent);
-            }
-        });
+
+
     }
 }
