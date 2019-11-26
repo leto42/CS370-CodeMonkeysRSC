@@ -35,7 +35,7 @@ public class GenrePageActivity extends AppCompatActivity implements AdapterView.
         yes_button = findViewById(R.id.yes_radio_button);
         no_button = findViewById(R.id.no_radio_button);
         choices_group = findViewById(R.id.choices_radio_group);
-        submit_button = findViewById(R.id.choose_genre_button);
+        submit_button = findViewById(R.id.submit_button);
         home_button = findViewById(R.id.home_button);
 
         Spinner spinner = findViewById(R.id.genre_spinner);
