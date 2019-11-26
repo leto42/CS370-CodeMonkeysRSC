@@ -28,8 +28,13 @@ public class YoutubePageActivity extends YouTubeBaseActivity {
     private YouTubePlayerView youtubeplayerview;
     private YouTubePlayer.OnInitializedListener youtube_listener;
     private String video_ID;
+    private String returnedSongTitle;
+    private int GenreID; //ORIGINAL
+    //static int GenreID;
+    private String searchTerm;
 
-    // Will get searchterm from the genre page after the Deezer API search is done.
+
+    public int getGenreID() {return GenreID;} // not currently working
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,35 +47,64 @@ public class YoutubePageActivity extends YouTubeBaseActivity {
         youtube_play_button = findViewById(R.id.YouTube_play_button);
         youtubeplayerview = findViewById(R.id.YouTubePlayer_view);
 
+        // String GenreID = getIntent().getStringExtra("GENRE_ID"); ORIGINAL
+        GenreID = getIntent().getIntExtra("GENRE_ID", 0);
+        Log.d("YoutubePageActivity","receivedGenreID: " + GenreID); // checking that GenreID successfully received. (yes)
+
+        Deezer deezerSearch = new Deezer();
+        // *** need to get GenreID to Deezer class ***
+
+        /*
+        Intent intent = new Intent(YoutubePageActivity.this, Deezer.class);
+        intent.putExtra("GENRE_ID", GenreID);
+        startActivity(intent);
+        */
+
+        deezerSearch.setListener(new Deezer.DeezerListener() {
+            @Override
+            public void onDeezerCallback(String songTitle) {
+                returnedSongTitle = songTitle;
+                Log.d("YoutubePageActivity", "returnedSongTitle: " + returnedSongTitle);
+                // Temporary display message to see the genre id being selected.
+                Context context = getApplicationContext();
+                CharSequence text = returnedSongTitle;
+                int duration = Toast.LENGTH_SHORT;
+                Toast toast = Toast.makeText(context, text, duration);
+                toast.show();
+                String searchTerm = returnedSongTitle + " song lyrics";
+
+
+            }
+        });
+
+        deezerSearch.execute(GenreID);
+        Log.d("YoutubePageActivity", "returnedSongTitle: " + returnedSongTitle);
 
         // set up youtube play button
         youtube_play_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //create a new task
-                VideoSearchAsyncTask video_task = new VideoSearchAsyncTask();
+            //create a new task
+            VideoSearchAsyncTask video_task = new VideoSearchAsyncTask();
 
 
-                // add a VideoListener to the task
-                video_task.setListener(new VideoSearchAsyncTask.VideoListener() {
-                    @Override
-                    public void onVideoSearchCallback(List<YouTubeModel> YouTubeModels) {
-                        // show the first response on the screen
-                        YouTubeModel first = YouTubeModels.get(0);
+            // add a VideoListener to the task
+            video_task.setListener(new VideoSearchAsyncTask.VideoListener() {
+                @Override
+                public void onVideoSearchCallback(List<YouTubeModel> YouTubeModels) {
+                    // show the first response on the screen
+                    YouTubeModel first = YouTubeModels.get(0);
 
-                        // set video_ID
-                        video_ID = first.getVideoID();
-                        videoidView.setText(first.getVideoID());
+                    // set video_ID
+                    video_ID = first.getVideoID();
+                    videoidView.setText(first.getVideoID());
 
-                        Log.d("SetView:", videoidView.getText().toString());
-                        youtubeplayerview.initialize(YouTubeAPI.getYouTube_API_KEY(), youtube_listener);
-                        // Create view for this to display under/over youtube video.
-                        //VideoName.setText(first.getVideoName());
-                    }
-                });
-
-                //temp search term
-                String searchTerm = "Kawhi Leonard";
+                    Log.d("SetView:", videoidView.getText().toString());
+                    youtubeplayerview.initialize(YouTubeAPI.getYouTube_API_KEY(), youtube_listener);
+                    // Create view for this to display under/over youtube video.
+                    //VideoName.setText(first.getVideoName());
+                }
+            });
                 //Start the task
                 video_task.execute(searchTerm);
                 //youtubeplayerview.initialize(YouTubeAPI.getYouTube_API_KEY(), youtube_listener);
@@ -109,7 +143,6 @@ public class YoutubePageActivity extends YouTubeBaseActivity {
             }
         });
 
-
         // set up youtube listener
         youtube_listener = new YouTubePlayer.OnInitializedListener() {
             @Override
@@ -123,6 +156,5 @@ public class YoutubePageActivity extends YouTubeBaseActivity {
 
             }
         };
-
     }
 }
