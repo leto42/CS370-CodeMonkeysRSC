@@ -20,7 +20,6 @@ public class YoutubePageActivity extends AppCompatActivity {
         setContentView(R.layout.activity_youtube_page);
         home_button = findViewById(R.id.home_button);
         new_button = findViewById(R.id.new_button);
-        like_button = findViewById(R.id.like_button);
 
         home_button.setOnClickListener(new View.OnClickListener() {
             @Override
