@@ -25,21 +25,7 @@ public class YouTubeParser {
         List<YouTubeModel> modelList = new ArrayList<>();
 
         try {
-            /* Want videoId
-        "video"
-            "items" : [
-              {
-              "kind": "youtube#searchResult",
-              "etag": etag,
-              "id": {
-                "kind": string,
-                "videoId": string,
-                "channelId": string,
-                "playlistId": string
-              }
-                ...
-                ]
-             */
+            Log.d(TAG, "Begin to parse JSON");
             // a single JSONObject representing the whole response
             JSONObject response = new JSONObject(json);
 
@@ -48,6 +34,8 @@ public class YouTubeParser {
             JSONObject idObject = itemObject.getJSONObject("id");
             String VideoID = idObject.getString("videoId");
 
+            Log.d(TAG, "Finished parsing JSON");
+            Log.d(TAG, "videoId: " + VideoID);
             YouTubeModel youtubeModel = new YouTubeModel();
             youtubeModel.setVideoID(VideoID);
             modelList.add(youtubeModel);
