@@ -9,6 +9,7 @@
     <!-- genre drop down menu -->
     <Spinner
         android:id="@+id/genre_spinner"
+
         android:layout_width="200dp"
         android:layout_height="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -26,26 +27,32 @@
         android:text="Genre? (choose from list)"
         android:textColor="#000000"
         android:textSize="25dp"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+
         app:layout_constraintVertical_bias="0.2" />
 
     <!-- select text -->
+
     <TextView
-        android:id="@+id/select_song_text"
+        android:id="@+id/genre_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+
         android:text="Select Your Music:"
         android:textSize="25dp"
         android:textColor="#000000"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.03"
+        app:layout_constraintHorizontal_bias="0.206"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+
         app:layout_constraintVertical_bias="0.1" />
 
     <!-- app name text -->
@@ -61,18 +68,19 @@
 
         tools:ignore="MissingConstraints" />
 
+
     <!-- explicit yes/no buttons in group -->
     <RadioGroup
         android:id="@+id/choices_radio_group"
-        android:layout_width="200dp"
-        android:layout_height="100dp"
+        android:layout_width="110dp"
+        android:layout_height="118dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.64"
+        app:layout_constraintHorizontal_bias="0.435"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.85">
+        app:layout_constraintVertical_bias="0.592">
 
         <RadioButton
             android:id="@+id/yes_radio_button"
@@ -80,10 +88,9 @@
             android:layout_height="wrap_content"
             android:onClick="onRadioButtonClicked"
             android:text="Yes"
-            android:textSize="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintHorizontal_bias="0.421"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -95,10 +102,9 @@
             android:layout_height="wrap_content"
             android:onClick="onRadioButtonClicked"
             android:text="No"
-            android:textSize="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/yes_radio_button"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -113,13 +119,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Explicit?"
+
         android:textColor="#000000"
         android:textSize="25dp"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.08"
+        app:layout_constraintHorizontal_bias="0.194"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+
         app:layout_constraintVertical_bias="0.7" />
 
     <!-- submit button, going away -->
@@ -131,10 +140,12 @@
         android:textAllCaps="false"
         android:textColor="#293250"
         android:textSize="40dp"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+
         app:layout_constraintHorizontal_bias=".85"
         app:layout_constraintVertical_bias="0.95" />
 
@@ -151,9 +162,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.149"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.95"
+        app:layout_constraintVertical_bias="0.950"
         />
 
 

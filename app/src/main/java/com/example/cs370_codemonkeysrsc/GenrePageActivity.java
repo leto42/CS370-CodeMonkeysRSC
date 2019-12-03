@@ -16,6 +16,11 @@ import android.widget.Toast;
 
 public class GenrePageActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
+    // Array that holds all genre IDs from Deezer.
+    // the IDs are in the same order as the choices in the spinner.
+    private final int[] GenreIDs = {2, 85, 16, 153, 75, 186, 98, 84, 71, 113, 106, 173, 466, 81, 129,
+                                    95, 197, 464, 132, 116, 144, 122, 152, 165, 67, 169, 65};
+    private static int chosenGenreID;
     private RadioGroup choices_group;
     private RadioButton yes_button, no_button, selected_button;
     private Button submit_button;
@@ -32,7 +37,7 @@ public class GenrePageActivity extends AppCompatActivity implements AdapterView.
         yes_button = findViewById(R.id.yes_radio_button);
         no_button = findViewById(R.id.no_radio_button);
         choices_group = findViewById(R.id.choices_radio_group);
-        submit_button = findViewById(R.id.choose_genre_button);
+        submit_button = findViewById(R.id.submit_button);
         home_button = findViewById(R.id.home_button);
 
         Spinner spinner = findViewById(R.id.genre_spinner);
@@ -47,7 +52,9 @@ public class GenrePageActivity extends AppCompatActivity implements AdapterView.
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(GenrePageActivity.this, YoutubePageActivity.class);
+                intent.putExtra("GENRE_ID", chosenGenreID);
                 startActivity(intent);
+                finish();
             }
         });
         // Button to return to MainActivity page.
@@ -56,6 +63,7 @@ public class GenrePageActivity extends AppCompatActivity implements AdapterView.
             public void onClick(View view) {
                 Intent intent = new Intent(GenrePageActivity.this, MainActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -64,17 +72,16 @@ public class GenrePageActivity extends AppCompatActivity implements AdapterView.
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int pos, long id) {
         adapterView.getItemAtPosition(pos);
-        // Store genre choice to a string.
-        genre_choice = adapterView.getItemAtPosition(pos).toString();
+        chosenGenreID = GenreIDs[pos];
 
-        /*
-        //[FOR TESTING] Print out the string that is being stored.
+        // Temporary display message to see the genre id being selected.
         Context context = getApplicationContext();
-        CharSequence text = genre_choice;
+        CharSequence text = String.format("Genre ID: %d", GenreIDs[pos]);
         int duration = Toast.LENGTH_SHORT;
         Toast toast = Toast.makeText(context, text, duration);
         toast.show();
-        */
+        // end of genre toast
+
     }
 
     @Override
