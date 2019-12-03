@@ -6,18 +6,21 @@
     android:layout_height="match_parent"
     tools:context=".YoutubePageActivity">
 
+    <!-- new video button -->
+
+    <!-- appname text -->
     <Button
         android:id="@+id/new_button"
-        android:background="@drawable/choose_genre_button"
-        android:layout_height="100dp"
         android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:background="@drawable/new_button"
         android:text="New"
         android:textAllCaps="false"
-        android:textColor="#f96167"
-        android:textSize="30sp"
+        android:textColor="#293250"
+        android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.15"
+        app:layout_constraintHorizontal_bias="0.85"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.95" />
@@ -26,31 +29,33 @@
         android:id="@+id/app_name"
         android:layout_width="420dp"
         android:layout_height="wrap_content"
-        android:text=" Insert AppName Here"
+        android:text="Song Genie"
+        android:gravity="center"
         android:textSize="41dp"
-        android:textColor="#fce77d"
+        android:textColor="#6dd47e"
         android:background="#2b3252"
 
         tools:ignore="MissingConstraints" />
 
-
+    <!-- home button -->
     <Button
         android:id="@+id/home_button"
-        android:background="@drawable/new_button"
+        android:background="@drawable/home_button"
         android:layout_width="150dp"
         android:layout_height="100dp"
         android:text="Home"
         android:textAllCaps="false"
-        android:textColor="#fce77d"
-        android:textSize="30sp"
+        android:textColor="#6dd47e"
+        android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.85"
+        app:layout_constraintHorizontal_bias="0.149"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.95"
         />
 
+    <!-- video placeholder -->
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -64,6 +69,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.204" />
 
+    <!-- video title placeholder -->
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
@@ -75,4 +81,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:layout_constraintVertical_bias="0.078" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
