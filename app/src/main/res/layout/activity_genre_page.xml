@@ -6,70 +6,29 @@
     android:layout_height="match_parent"
     tools:context=".GenrePageActivity">
 
-    <!-- genre drop down menu -->
     <Spinner
         android:id="@+id/genre_spinner"
-
-        android:layout_width="200dp"
-        android:layout_height="50dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias=".5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.25" />
-
-    <!-- genre text -->
-    <TextView
-        android:id="@+id/genre_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Genre? (choose from list)"
-        android:textColor="#000000"
-        android:textSize="25dp"
-
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-
-        app:layout_constraintVertical_bias="0.2" />
-
-    <!-- select text -->
+        app:layout_constraintVertical_bias="0.178" />
 
     <TextView
         android:id="@+id/genre_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
-        android:text="Select Your Music:"
-        android:textSize="25dp"
-        android:textColor="#000000"
-
+        android:text="Genre"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.206"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.11" />
 
-        app:layout_constraintVertical_bias="0.1" />
-
-    <!-- app name text -->
-    <TextView
-        android:id="@+id/app_name"
-        android:layout_width="420dp"
-        android:layout_height="wrap_content"
-        android:text="Song Genie"
-        android:gravity="center"
-        android:textSize="41dp"
-        android:textColor="#6dd47e"
-        android:background="#2b3252"
-
-        tools:ignore="MissingConstraints" />
-
-
-    <!-- explicit yes/no buttons in group -->
     <RadioGroup
         android:id="@+id/choices_radio_group"
         android:layout_width="110dp"
@@ -113,56 +72,40 @@
 
     </RadioGroup>
 
-    <!-- explicit text -->
     <TextView
         android:id="@+id/explicit_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Explicit?"
-
-        android:textColor="#000000"
-        android:textSize="25dp"
-
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.194"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.46" />
 
-        app:layout_constraintVertical_bias="0.7" />
-
-    <!-- submit button, going away -->
     <Button
-        android:id="@+id/choose_genre_button"
-        android:background="@drawable/home_button"
-        android:layout_width="150dp"
-        android:layout_height="100dp"
-        android:textAllCaps="false"
-        android:textColor="#293250"
-        android:textSize="40dp"
-
+        android:id="@+id/submit_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-
-        app:layout_constraintHorizontal_bias=".85"
-        app:layout_constraintVertical_bias="0.95" />
-
-    <!-- home button -->
+        app:layout_constraintVertical_bias="0.811" />
     <Button
         android:id="@+id/home_button"
-        android:background="@drawable/home_button"
-        android:layout_width="150dp"
-        android:layout_height="100dp"
+        android:background="@drawable/new_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="Home"
         android:textAllCaps="false"
-        android:textColor="#6dd47e"
-        android:textSize="40sp"
+        android:textColor="#FFFFFB"
+        android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.149"
-
+        app:layout_constraintHorizontal_bias="0.500"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.950"
