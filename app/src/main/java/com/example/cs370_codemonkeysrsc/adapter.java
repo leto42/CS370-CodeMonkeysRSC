@@ -29,7 +29,7 @@ public class adapter extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        ((myViewHolder)holder).textLineTxt.setText(modelList.get(position).getTextLine());
+        ((myViewHolder)holder).submitButton.setText(modelList.get(position).getTextLine());
     }
 
     @Override
@@ -42,8 +42,8 @@ public class adapter extends RecyclerView.Adapter {
         Button submitButton;
         public myViewHolder(@NonNull View itemView) {
             super(itemView);
-            textLineTxt = itemView.findViewById(R.id.textID);
-            submitButton = itemView.findViewById(R.id.submitButtonID);
+//            textLineTxt = itemView.findViewById(R.id.textID);
+//            submitButton = itemView.findViewById(R.id.submitButtonID);
         }
     }
 }
