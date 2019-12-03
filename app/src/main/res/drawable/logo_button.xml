@@ -1,9 +1,73 @@
-<?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="oval">
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:top="50dp"
+        android:left="100dp"
+        android:height="200dp"
+        android:width="40dp">
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="90"
+                android:startColor="#17202A"
+                android:endColor="#000000"/>
+        </shape>
+    </item>
 
-    <size android:height="360dp"
-        android:width="360dp"/>
-    <stroke android:color="#060d15"
-        android:width="5dp"/>
-    <solid android:color="#d6923f"/>
-</shape>
+    <item
+        android:top="50dp"
+        android:left="270dp"
+        android:height="200dp"
+        android:width="40dp">
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="90"
+                android:startColor="#17202A"
+                android:endColor="#000000"/>
+        </shape>
+    </item>
+
+
+
+    <item
+        android:top="200dp"
+        android:right="100dp"
+        android:left="210dp"
+        android:height="100dp"
+        android:width="100dp">
+        <shape android:shape="oval">
+            <gradient
+                android:angle="90"
+                android:startColor="#17202A"
+                android:endColor="#000000"/>
+
+        </shape>
+
+    </item>
+
+    <item
+        android:top="200dp"
+        android:height="100dp"
+        android:width="100dp"
+        android:left="40dp" >
+        <shape android:shape="oval">
+            <gradient
+                android:angle="90"
+                android:startColor="#17202A"
+                android:endColor="#000000"/>
+        </shape>
+    </item>
+
+    <item
+        android:top="50dp"
+        android:left="100dp"
+        android:height="40dp"
+        android:width="210dp">
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="90"
+                android:startColor="#17202A"
+                android:endColor="#000000"/>
+        </shape>
+    </item>
+
+
+</layer-list>

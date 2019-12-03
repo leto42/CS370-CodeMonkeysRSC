@@ -26,6 +26,8 @@ public class GenrePageActivity extends AppCompatActivity implements AdapterView.
     private Button submit_button;
     private Button home_button;
     private static Boolean allowExplicit;
+    private static String genre_choice;
+    private static String app_name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

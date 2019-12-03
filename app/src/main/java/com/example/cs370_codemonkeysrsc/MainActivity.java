@@ -9,7 +9,6 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button saveButton;
     private Button logo_button;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
