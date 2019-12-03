@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
-    <Spinner
+<!--    <Spinner
         android:id="@+id/genre_spinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -99,6 +99,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.811" />
+-->
     <Button
         android:id="@+id/home_button"
         android:background="@drawable/new_button"

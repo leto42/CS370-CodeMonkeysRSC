@@ -90,18 +90,18 @@ public class GenrePageActivity extends AppCompatActivity implements AdapterView.
         myRecyclerView.setAdapter(myAdapter);
 
 
-        yes_button = findViewById(R.id.yes_radio_button);
-        no_button = findViewById(R.id.no_radio_button);
-        choices_group = findViewById(R.id.choices_radio_group);
-        submit_button = findViewById(R.id.submit_button);
+        //yes_button = findViewById(R.id.yes_radio_button);
+        //no_button = findViewById(R.id.no_radio_button);
+        //choices_group = findViewById(R.id.choices_radio_group);
+        //submit_button = findViewById(R.id.submit_button);
         home_button = findViewById(R.id.home_button);
 
-        Spinner spinner = findViewById(R.id.genre_spinner);
+        //Spinner spinner = findViewById(R.id.genre_spinner);
 
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.genre_array, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
-        spinner.setAdapter(adapter);
-        spinner.setOnItemSelectedListener(this);
+       // ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.genre_array, android.R.layout.simple_spinner_item);
+       // adapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
+        //spinner.setAdapter(adapter);
+       // spinner.setOnItemSelectedListener(this);
 
         // Set up button to go to Youtube page. [SUBMIT button]
 
@@ -137,7 +137,7 @@ public class GenrePageActivity extends AppCompatActivity implements AdapterView.
     public void onNothingSelected(AdapterView<?> adapterView) {
     }
 
-    public void onRadioButtonClicked(View view) {
+ /*   public void onRadioButtonClicked(View view) {
         int selected_num = choices_group.getCheckedRadioButtonId();
         selected_button = findViewById(selected_num);
 
@@ -156,5 +156,5 @@ public class GenrePageActivity extends AppCompatActivity implements AdapterView.
                     allowExplicit = false;
                     break;
         }
-    }
+    }*/
 }
