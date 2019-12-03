@@ -6,60 +6,58 @@
     android:layout_height="match_parent"
     tools:context=".YoutubePageActivity">
 
-    <!-- new video button -->
-
-    <!-- appname text -->
     <Button
         android:id="@+id/new_button"
-        android:layout_width="150dp"
-        android:layout_height="100dp"
         android:background="@drawable/new_button"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
         android:text="New"
         android:textAllCaps="false"
-        android:textColor="#293250"
-        android:textSize="40sp"
+        android:textColor="#FFFFFB"
+        android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.85"
+        app:layout_constraintHorizontal_bias="0.188"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.95" />
+        app:layout_constraintVertical_bias="0.811" />
 
-    <TextView
-        android:id="@+id/app_name"
-        android:layout_width="420dp"
-        android:layout_height="wrap_content"
-        android:text="Song Genie"
-        android:gravity="center"
-        android:textSize="41dp"
-        android:textColor="#6dd47e"
-        android:background="#2b3252"
-
-        tools:ignore="MissingConstraints" />
-
-    <!-- home button -->
     <Button
         android:id="@+id/home_button"
-        android:background="@drawable/home_button"
-        android:layout_width="150dp"
-        android:layout_height="100dp"
+        android:background="@drawable/new_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="Home"
         android:textAllCaps="false"
-        android:textColor="#6dd47e"
-        android:textSize="40sp"
+        android:textColor="#FFFFFB"
+        android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.149"
-
+        app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.811"
         />
 
-    <!-- video placeholder -->
-    <TextView
-        android:id="@+id/textView"
+    <Button
+        android:id="@+id/like_button"
+        android:background="@drawable/like_button"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="Like"
+        android:textColor="#FFFFFB"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.808"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.811"
+        android:textAllCaps="false"/>
+        <!--constraintHorizontal_bias = 0.708-->
 
+    <Button
+        android:id="@+id/YouTube_play_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/like_button"
@@ -74,7 +72,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.458" />
 
-    <!-- video title placeholder -->
     <TextView
         android:id="@+id/videoid_text"
         android:layout_width="wrap_content"
@@ -85,8 +82,16 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.078" />
+        app:layout_constraintTop_toBottomOf="@+id/YouTubePlayer_view" />
 
-
+    <view
+        android:id="@+id/YouTubePlayer_view"
+        class="com.google.android.youtube.player.YouTubePlayerView"
+        android:layout_width="327dp"
+        android:layout_height="214dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.03" />
 </androidx.constraintlayout.widget.ConstraintLayout>
