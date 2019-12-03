@@ -6,6 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".GenrePageActivity">
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
     <Spinner
         android:id="@+id/genre_spinner"
         android:layout_width="wrap_content"

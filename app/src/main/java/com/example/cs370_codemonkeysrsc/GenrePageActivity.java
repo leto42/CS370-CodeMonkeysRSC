@@ -1,6 +1,8 @@
 package com.example.cs370_codemonkeysrsc;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,10 +11,14 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class GenrePageActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -26,11 +32,33 @@ public class GenrePageActivity extends AppCompatActivity implements AdapterView.
     private Button submit_button;
     private Button home_button;
     private static Boolean allowExplicit;
+    RecyclerView myRecyclerView;
+    List<Model> myModelList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_genre_page);
+
+
+        myRecyclerView = findViewById(R.id.recyclerView);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(GenrePageActivity.this);
+        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        myRecyclerView.setLayoutManager(layoutManager);
+
+        myModelList = new ArrayList<>();
+        myModelList.add(new Model("Test 1"));
+        myModelList.add(new Model("Test 2"));
+        myModelList.add(new Model("Test 3"));
+        myModelList.add(new Model("Test 4"));
+        myModelList.add(new Model("Test 5"));
+        myModelList.add(new Model("Test 6"));
+        myModelList.add(new Model("Test 7"));
+        myModelList.add(new Model("Test 8"));
+
+        adapter myAdapter = new adapter(myModelList);
+        myRecyclerView.setAdapter(myAdapter);
+
 
         yes_button = findViewById(R.id.yes_radio_button);
         no_button = findViewById(R.id.no_radio_button);
