@@ -11,7 +11,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/logo_button"
-        android:text="Get Started"
         android:textAllCaps="false"
         android:textColor="#FFFFFB"
         android:textSize="50sp"
@@ -20,7 +19,50 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.065" />
+        app:layout_constraintVertical_bias="0.7" />
 
+    <TextView
+        android:id="@+id/app_name"
+        android:layout_width="420dp"
+        android:layout_height="wrap_content"
+        android:text="Song Genie"
+        android:gravity="center"
+        android:textSize="41dp"
+        android:textColor="#6dd47e"
+        android:background="#2b3252"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/get_started"
+        android:textAllCaps="false"
+        android:gravity="center"
+        android:fontFamily=""
+        android:text="Tap The Music Note To Get Started"
+        android:textSize="50dp"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.2"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/pending_button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="92dp"
+        android:text="Code Monkeys ®"
+        android:textColor="#293250"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.877"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo_button"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

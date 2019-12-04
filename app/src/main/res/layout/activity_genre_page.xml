@@ -6,6 +6,61 @@
     android:layout_height="match_parent"
     tools:context=".GenrePageActivity">
 
+
+    <!-- genre drop down menu -->
+
+    <!-- select text -->
+    <TextView
+        android:id="@+id/genre_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="Select Your Music:"
+        android:textSize="25dp"
+        android:textColor="#000000"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.206"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        app:layout_constraintVertical_bias="0.1" />
+
+    <!-- app name text -->
+    <TextView
+        android:id="@+id/app_name"
+        android:layout_width="420dp"
+        android:layout_height="wrap_content"
+        android:text="Song Genie"
+        android:gravity="center"
+        android:textSize="41dp"
+        android:textColor="#6dd47e"
+        android:background="#2b3252"
+        tools:ignore="MissingConstraints" />
+
+    <!-- explicit text -->
+
+    <!-- submit button, going away -->
+
+    <!-- home button -->
+    <Button
+        android:id="@+id/home_button"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:background="@drawable/home_button"
+        android:text="Home"
+        android:textAllCaps="false"
+        android:textColor="#6dd47e"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.95" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="346dp"
@@ -16,6 +71,7 @@
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

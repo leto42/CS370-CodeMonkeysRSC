@@ -16,19 +16,17 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
-
 import java.util.ArrayList;
 import java.util.List;
 
-public class GenrePageActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
-
+public class GenrePageActivity extends AppCompatActivity {
     // Array that holds all genre IDs from Deezer.
     // the IDs are in the same order as the choices in the spinner.
     private final int[] GenreIDs = {2, 85, 16, 153, 75, 186, 98, 84, 71, 113, 106, 173, 466, 81, 129,
-                                    95, 197, 464, 132, 116, 144, 122, 152, 165, 67, 169, 65};
+            95, 197, 464, 132, 116, 144, 122, 152, 165, 67, 169, 65};
     private static int chosenGenreID;
-    private RadioGroup choices_group;
-    private RadioButton selected_button;
+    private static String genre_choice;
+    private static String app_name;
     RecyclerView myRecyclerView;
     List<Model> myModelList;
 
@@ -36,7 +34,6 @@ public class GenrePageActivity extends AppCompatActivity implements AdapterView.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_genre_page);
-
         myRecyclerView = findViewById(R.id.recyclerView);
         LinearLayoutManager layoutManager = new LinearLayoutManager(GenrePageActivity.this);
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
@@ -84,24 +81,5 @@ public class GenrePageActivity extends AppCompatActivity implements AdapterView.
 
         GenreAdapter myAdapter = new GenreAdapter(myModelList, genreItemClickListener);
         myRecyclerView.setAdapter(myAdapter);
-    }
-
-    @Override
-    public void onItemSelected(AdapterView<?> adapterView, View view, int pos, long id) {
-        adapterView.getItemAtPosition(pos);
-        chosenGenreID = GenreIDs[pos];
-
-        // Temporary display message to see the genre id being selected.
-        Context context = getApplicationContext();
-        CharSequence text = String.format("Genre ID: %d", GenreIDs[pos]);
-        int duration = Toast.LENGTH_SHORT;
-        Toast toast = Toast.makeText(context, text, duration);
-        toast.show();
-        // end of genre toast
-
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> adapterView) {
     }
 }

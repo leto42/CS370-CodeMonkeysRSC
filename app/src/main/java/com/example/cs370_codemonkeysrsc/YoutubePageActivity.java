@@ -43,8 +43,8 @@ public class YoutubePageActivity extends YouTubeBaseActivity {
         home_button = findViewById(R.id.home_button);
         new_button = findViewById(R.id.new_button);
         videoidView = findViewById(R.id.videoid_text);
-        youtube_play_button = findViewById(R.id.YouTube_play_button);
-        youtubeplayerview = findViewById(R.id.YouTubePlayer_view);
+      //  youtube_play_button = findViewById(R.id.YouTube_play_button);
+      //  youtubeplayerview = findViewById(R.id.YouTubePlayer_view);
 
         // String GenreID = getIntent().getStringExtra("GENRE_ID"); ORIGINAL
         GenreID = getIntent().getIntExtra("GENRE_ID", 0);

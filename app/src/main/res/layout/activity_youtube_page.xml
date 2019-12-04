@@ -22,34 +22,44 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.811" />
 
+
+    <TextView
+        android:id="@+id/app_name"
+        android:layout_width="420dp"
+        android:layout_height="wrap_content"
+        android:text="Song Genie"
+        android:gravity="center"
+        android:textSize="41dp"
+        android:textColor="#6dd47e"
+        android:background="#2b3252"
+        tools:ignore="MissingConstraints" />
+
+    <!-- home button -->
     <Button
         android:id="@+id/home_button"
-        android:background="@drawable/new_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:background="@drawable/home_button"
         android:text="Home"
         android:textAllCaps="false"
         android:textColor="#FFFFFB"
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintHorizontal_bias="0.141"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.811"
-        />
-
-    <!--constraintHorizontal_bias = 0.708-->
+        app:layout_constraintVertical_bias="0.95" />
 
     <Button
         android:id="@+id/YouTube_play_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/like_button"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:background="@drawable/home_button"
         android:text="PLAY"
         android:textAllCaps="false"
-        android:textColor="#FFFFFB"
-        android:textSize="15sp"
+        android:textColor="#6dd47e"
+        android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
