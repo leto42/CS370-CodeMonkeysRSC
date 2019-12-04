@@ -22,7 +22,6 @@ import java.util.List;
 public class YoutubePageActivity extends YouTubeBaseActivity {
     private Button new_button; // designed to return to input page *
     private Button home_button; // designed to return to main page
-    private Button like_button; // designed to save song to favorites
     private Button youtube_play_button;
     private TextView videoidView;
     private YouTubePlayerView youtubeplayerview;
@@ -30,7 +29,6 @@ public class YoutubePageActivity extends YouTubeBaseActivity {
     private String video_ID;
     private String returnedSongTitle;
     private int GenreID; //ORIGINAL
-    //static int GenreID;
     private String searchTerm;
 
 
@@ -43,21 +41,14 @@ public class YoutubePageActivity extends YouTubeBaseActivity {
         home_button = findViewById(R.id.home_button);
         new_button = findViewById(R.id.new_button);
         videoidView = findViewById(R.id.videoid_text);
-      //  youtube_play_button = findViewById(R.id.YouTube_play_button);
-      //  youtubeplayerview = findViewById(R.id.YouTubePlayer_view);
+        youtube_play_button = findViewById(R.id.YouTube_play_button);
+        youtubeplayerview = findViewById(R.id.YouTubePlayer_view);
 
         // String GenreID = getIntent().getStringExtra("GENRE_ID"); ORIGINAL
         GenreID = getIntent().getIntExtra("GENRE_ID", 0);
         Log.d("YoutubePageActivity","receivedGenreID: " + GenreID); // checking that GenreID successfully received. (yes)
 
         Deezer deezerSearch = new Deezer();
-        // *** need to get GenreID to Deezer class ***
-
-        /*
-        Intent intent = new Intent(YoutubePageActivity.this, Deezer.class);
-        intent.putExtra("GENRE_ID", GenreID);
-        startActivity(intent);
-        */
 
         deezerSearch.setListener(new Deezer.DeezerListener() {
             @Override
@@ -71,8 +62,6 @@ public class YoutubePageActivity extends YouTubeBaseActivity {
                 Toast toast = Toast.makeText(context, text, duration);
                 toast.show();
                 searchTerm = returnedSongTitle + " song lyrics";
-
-
             }
         });
 
@@ -100,15 +89,10 @@ public class YoutubePageActivity extends YouTubeBaseActivity {
 
                     Log.d("SetView:", videoidView.getText().toString());
                     youtubeplayerview.initialize(YouTubeAPI.getYouTube_API_KEY(), youtube_listener);
-                    // Create view for this to display under/over youtube video.
-                    //VideoName.setText(first.getVideoName());
                 }
             });
                 //Start the task
                 video_task.execute(searchTerm);
-                //youtubeplayerview.initialize(YouTubeAPI.getYouTube_API_KEY(), youtube_listener);
-
-
             }
         });
 

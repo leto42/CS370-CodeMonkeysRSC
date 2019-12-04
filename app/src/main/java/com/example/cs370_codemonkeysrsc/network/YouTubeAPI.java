@@ -12,7 +12,7 @@ public class YouTubeAPI {
     // base search URL
     private static final String baseApiUrl = "https://www.googleapis.com/youtube/v3/search";
     // API Key
-    private static final String YouTube_API_KEY = "AIzaSyA3iS0EIDG1zLdVaJ9fpc-oGtKyksksTNQ";
+    private static final String YouTube_API_KEY = "AIzaSyCBt9DN1YAO-TJdr0naub79NG355FNyGW8";
     // Part is always going to be "snippet"
     private static final String part = "snippet";
     // Only concerned with videos
