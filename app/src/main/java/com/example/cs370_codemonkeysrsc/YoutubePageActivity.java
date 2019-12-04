@@ -132,18 +132,6 @@ public class YoutubePageActivity extends YouTubeBaseActivity {
             }
         });
 
-        like_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // "Toast" notification that song has been added to Favorites.
-                Context context = getApplicationContext();
-                CharSequence text = "Song saved to Favorites!";
-                int duration = Toast.LENGTH_SHORT;
-                Toast toast = Toast.makeText(context, text, duration);
-                toast.show();
-            }
-        });
-
         // set up youtube listener
         youtube_listener = new YouTubePlayer.OnInitializedListener() {
             @Override
