@@ -49,17 +49,6 @@
         app:layout_constraintVertical_bias="0.1" />
 
     <!-- app name text -->
-    <TextView
-        android:id="@+id/app_name"
-        android:layout_width="420dp"
-        android:layout_height="wrap_content"
-        android:text="Song Genie"
-        android:gravity="center"
-        android:textSize="41dp"
-        android:textColor="#6dd47e"
-        android:background="#2b3252"
-
-        tools:ignore="MissingConstraints" />
 
     <!-- explicit yes/no buttons in group -->
     <RadioGroup

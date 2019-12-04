@@ -23,16 +23,6 @@
         app:layout_constraintVertical_bias="0.7" />
 
     <TextView
-        android:id="@+id/app_name"
-        android:layout_width="420dp"
-        android:layout_height="wrap_content"
-        android:text="Song Genie"
-        android:gravity="center"        android:textSize="41dp"
-        android:textColor="#6dd47e"
-        android:background="#2b3252"
-
-        tools:ignore="MissingConstraints" />
-    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/get_started"
@@ -47,24 +37,9 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.2"
+        app:layout_constraintVertical_bias="0.1"
         tools:ignore="MissingConstraints" />
 
-
-    <TextView
-        android:id="@+id/app_creators"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Created By Skyler, Tommy, Colin and Vince"
-        android:textColor="#293250"
-        android:textSize="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.95"
-        tools:ignore="MissingConstraints"/>
 
     <TextView
         android:id="@+id/code_monkey"
