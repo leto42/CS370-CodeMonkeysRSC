@@ -1,6 +1,8 @@
 package com.example.cs370_codemonkeysrsc;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,10 +11,14 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class GenrePageActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -25,32 +31,65 @@ public class GenrePageActivity extends AppCompatActivity implements AdapterView.
     private RadioButton selected_button;
     private Button submit_button;
     private Button home_button;
+    RecyclerView myRecyclerView;
+    List<Model> myModelList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_genre_page);
-        choices_group = findViewById(R.id.choices_radio_group);
         submit_button = findViewById(R.id.submit_button);
         home_button = findViewById(R.id.home_button);
 
-        Spinner spinner = findViewById(R.id.genre_spinner);
+        myRecyclerView = findViewById(R.id.recyclerView);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(GenrePageActivity.this);
+        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        myRecyclerView.setLayoutManager(layoutManager);
 
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.genre_array, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
-        spinner.setAdapter(adapter);
-        spinner.setOnItemSelectedListener(this);
+        myModelList = new ArrayList<>();
+        myModelList.add(new Model("African Music", 2));
+        myModelList.add(new Model("Alternative", 85));
+        myModelList.add(new Model("Asian Music", 16));
+        myModelList.add(new Model("Blues", 153));
+        myModelList.add(new Model("Brazilian Music", 75));
+        myModelList.add(new Model("Christian", 186));
+        myModelList.add(new Model("Classical", 98));
+        myModelList.add(new Model("Country", 84));
+        myModelList.add(new Model("Cumbia", 71));
+        myModelList.add(new Model("Dance", 113));
+        myModelList.add(new Model("Electro", 106));
+        myModelList.add(new Model("Films/Games", 173));
+        myModelList.add(new Model("Folk", 466));
+        myModelList.add(new Model("Indian Music", 81));
+        myModelList.add(new Model("Jazz", 129));
+        myModelList.add(new Model("Kids", 95));
+        myModelList.add(new Model("Latin Music", 197));
+        myModelList.add(new Model("Metal", 464));
+        myModelList.add(new Model("Pop", 132));
+        myModelList.add(new Model("Rap/Hip-Hop", 116));
+        myModelList.add(new Model("Reggae", 144));
+        myModelList.add(new Model("Reggaeton", 122));
+        myModelList.add(new Model("Rock", 152));
+        myModelList.add(new Model("R & B", 165));
+        myModelList.add(new Model("Salsa", 67));
+        myModelList.add(new Model("Soul & Funk", 169));
+        myModelList.add(new Model("Traditional Mexiano", 65));
 
-        // Set up button to go to Youtube page. [SUBMIT button]
-        submit_button.setOnClickListener(new View.OnClickListener() {
+
+        OnGenreItemClickListener genreItemClickListener = new OnGenreItemClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onGenreItemClick(int selectedGenreId) {
                 Intent intent = new Intent(GenrePageActivity.this, YoutubePageActivity.class);
-                intent.putExtra("GENRE_ID", chosenGenreID);
+                intent.putExtra("GENRE_ID", selectedGenreId);
                 startActivity(intent);
                 finish();
             }
-        });
+        };
+
+        GenreAdapter myAdapter = new GenreAdapter(myModelList, genreItemClickListener);
+        myRecyclerView.setAdapter(myAdapter);
+        home_button = findViewById(R.id.home_button);
+
         // Button to return to MainActivity page.
         home_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,14 +119,5 @@ public class GenrePageActivity extends AppCompatActivity implements AdapterView.
 
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
-    }
-
-    public void onRadioButtonClicked(View view) {
-        int selected_num = choices_group.getCheckedRadioButtonId();
-        selected_button = findViewById(selected_num);
-
-        // See which choice was selected.
-        boolean checked = ((RadioButton) view).isChecked();
-
     }
 }
