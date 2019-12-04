@@ -29,8 +29,6 @@ public class GenrePageActivity extends AppCompatActivity implements AdapterView.
     private static int chosenGenreID;
     private RadioGroup choices_group;
     private RadioButton selected_button;
-    private Button submit_button;
-    private Button home_button;
     RecyclerView myRecyclerView;
     List<Model> myModelList;
 
@@ -38,8 +36,6 @@ public class GenrePageActivity extends AppCompatActivity implements AdapterView.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_genre_page);
-        submit_button = findViewById(R.id.submit_button);
-        home_button = findViewById(R.id.home_button);
 
         myRecyclerView = findViewById(R.id.recyclerView);
         LinearLayoutManager layoutManager = new LinearLayoutManager(GenrePageActivity.this);
@@ -88,18 +84,6 @@ public class GenrePageActivity extends AppCompatActivity implements AdapterView.
 
         GenreAdapter myAdapter = new GenreAdapter(myModelList, genreItemClickListener);
         myRecyclerView.setAdapter(myAdapter);
-        home_button = findViewById(R.id.home_button);
-
-        // Button to return to MainActivity page.
-        home_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(GenrePageActivity.this, MainActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
-
     }
 
     @Override
