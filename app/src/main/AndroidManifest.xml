@@ -12,7 +12,6 @@
         android:theme="@style/AppTheme">
         <activity android:name=".YoutubePageActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"></activity>
-        <activity android:name=".LikeFavoritePage"></activity>
         <activity android:name=".GenrePageActivity"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>

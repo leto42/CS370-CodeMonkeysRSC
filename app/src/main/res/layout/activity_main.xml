@@ -22,53 +22,5 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.065" />
 
-    <Button
-        android:id="@+id/save_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/save_button"
-        android:text="Save"
-        android:textAllCaps="false"
-        android:textColor="#FFFFFB"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logo_button"
-        app:layout_constraintVertical_bias="0.946" />
-
-    <Button
-        android:id="@+id/pending_button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/pending_button"
-        android:text="function1?"
-        android:textAllCaps="false"
-        android:textColor="#FFFFFB"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/save_button"
-        app:layout_constraintHorizontal_bias="0.575"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logo_button"
-        app:layout_constraintVertical_bias="0.946" />
-
-    <Button
-        android:id="@+id/pending_button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/pending_button"
-        android:text="function2?"
-        android:textAllCaps="false"
-        android:textColor="#FFFFFB"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.31"
-        app:layout_constraintStart_toEndOf="@+id/save_button"
-        app:layout_constraintTop_toBottomOf="@+id/logo_button"
-        app:layout_constraintVertical_bias="0.946" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

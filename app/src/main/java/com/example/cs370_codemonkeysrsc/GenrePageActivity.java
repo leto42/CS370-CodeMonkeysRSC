@@ -22,18 +22,14 @@ public class GenrePageActivity extends AppCompatActivity implements AdapterView.
                                     95, 197, 464, 132, 116, 144, 122, 152, 165, 67, 169, 65};
     private static int chosenGenreID;
     private RadioGroup choices_group;
-    private RadioButton yes_button, no_button, selected_button;
+    private RadioButton selected_button;
     private Button submit_button;
     private Button home_button;
-    private static Boolean allowExplicit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_genre_page);
-
-        yes_button = findViewById(R.id.yes_radio_button);
-        no_button = findViewById(R.id.no_radio_button);
         choices_group = findViewById(R.id.choices_radio_group);
         submit_button = findViewById(R.id.submit_button);
         home_button = findViewById(R.id.home_button);
@@ -93,17 +89,5 @@ public class GenrePageActivity extends AppCompatActivity implements AdapterView.
         // See which choice was selected.
         boolean checked = ((RadioButton) view).isChecked();
 
-        switch(view.getId()) {
-            case R.id.yes_radio_button:
-                if (checked)
-                    // Allow explicit lyrics.
-                    allowExplicit = true;
-                    break;
-            case R.id.no_radio_button:
-                if (checked)
-                    // No explicit lyrics.
-                    allowExplicit = false;
-                    break;
-        }
     }
 }
