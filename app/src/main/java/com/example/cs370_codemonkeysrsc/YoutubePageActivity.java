@@ -23,7 +23,6 @@ public class YoutubePageActivity extends YouTubeBaseActivity {
     private Button new_button; // designed to return to input page *
     private Button home_button; // designed to return to main page
     private Button youtube_play_button;
-    private TextView videoidView;
     private YouTubePlayerView youtubeplayerview;
     private YouTubePlayer.OnInitializedListener youtube_listener;
     private String video_ID;
@@ -84,9 +83,6 @@ public class YoutubePageActivity extends YouTubeBaseActivity {
 
                     // set video_ID
                     video_ID = first.getVideoID();
-                    videoidView.setText(first.getVideoID());
-
-                    Log.d("SetView:", videoidView.getText().toString());
                     youtubeplayerview.initialize(YouTubeAPI.getYouTube_API_KEY(), youtube_listener);
                 }
             });
@@ -119,14 +115,12 @@ public class YoutubePageActivity extends YouTubeBaseActivity {
         youtube_listener = new YouTubePlayer.OnInitializedListener() {
             @Override
             public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
-                Log.d("YouTubeInitialization:", videoidView.getText().toString());
                 youTubePlayer.setFullscreen(false);
                 youTubePlayer.loadVideo(video_ID);
             }
 
             @Override
             public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult youTubeInitializationResult) {
-
             }
         };
     }
